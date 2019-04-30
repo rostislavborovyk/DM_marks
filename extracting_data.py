@@ -20,8 +20,8 @@ class Data:
         self.__data = self.__data.drop([' бал'], axis='columns')
         self.__data['Бал'] = pd.concat([first.dropna(), second.dropna()])
 
-    @classmethod
-    def __number_validator(cls, number):
+    @staticmethod
+    def __number_validator(number):
         digits = number.split(',')
         res = int(digits[0])
         return res
@@ -73,8 +73,8 @@ class Data:
 
     def statistics(self, step_for_normal_distribution=5):
         """
-        :param step_for_normal_distribution:
-        Range of points for showing normal distribution, optimal choice is  from 5 to 10
+        :param
+        step_for_normal_distribution: Range of points for showing normal distribution, optimal choice is  from 5 to 10
         :return:
         Prints sum of group marks, group's GPA and normal distribution of marks
         """
@@ -95,6 +95,9 @@ class Data:
         print("-"*30)
         self.all_rating()
 
+    def get_marks_data(self):
+        return self.__data
+
 
 def main():
     data = Data()
@@ -102,5 +105,5 @@ def main():
 
 
 if __name__ == '__main__':
-    # novotar_parser.main()
+    novotar_parser.main()
     main()
