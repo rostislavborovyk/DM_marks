@@ -1,3 +1,7 @@
 # DM_marks
+Parse marks from our teacher's website, save it to .xls files then process it making normal distribution of marks, general rating and group's scores
 
-Parse marks from our teacher's website using urllib, then save it to .xls files, and process it using pandas 
+# Used libraries
+* pandas
+* urllib
+* BeautifulSoup
