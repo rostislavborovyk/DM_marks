@@ -43,8 +43,7 @@ def information_from_group(url_of_group, num):
     columns_for_df = [i.text for i in names_of_columns][1:]
 
     name_of_group = rows[1].find_all('td')[1].text
-    print("Now is: ", name_of_group)
-
+    print("Now parsing: ", name_of_group)
 
     columns_for_df.append('Група')
     df = pd.DataFrame(columns=columns_for_df)
@@ -53,7 +52,7 @@ def information_from_group(url_of_group, num):
         if str(rows[index].find_all('td')[0].text).isdecimal():
             row_inf = [rows[index].find_all('td')[i].text for i in range(1, df.shape[1])]
             row_inf.append(name_of_group)
-            df.loc[index+correction-3] = row_inf
+            df.loc[index + correction - 3] = row_inf
     df.to_excel(name_of_group + '.xls')
 
 
@@ -67,4 +66,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
